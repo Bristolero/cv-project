@@ -18,7 +18,7 @@ class Experience extends React.Component {
     } 
 
     render () {
-        return <div>LOL</div>
+        return <div></div>
     }
 }
 

@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "roboto-slab";
+    src: url('../fonts/RobotoSlab-VariableFont_wght.ttf');
+}
+
+footer {
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    color: white;
+    background-color: rgb(71, 71, 71);
+    font-family: "roboto-slab";
+    font-size: 18px;
+    font-weight: 600;
+}
+
+footer a {
+    margin-left: 10px;
+}
+
+footer a:hover {
+    transform: scale(1.08);
+}

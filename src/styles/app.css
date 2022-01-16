@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Mulish";
+    src: url('../fonts/Mulish-VariableFont_wght.ttf');
+}
+
+.App {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    background-color: rgb(219, 221, 253);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    flex-grow: 1;
+    font-family: "Mulish";
+}
