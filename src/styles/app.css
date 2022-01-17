@@ -16,4 +16,18 @@
 main {
     flex-grow: 1;
     font-family: "Mulish";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 10px;
+    
 }
+
+.cv-wrapper {
+    border: 3px solid rgb(1, 1, 90);
+    min-width: 210mm;
+    min-height: 297mm;
+    background-color: white;
+}
+

@@ -4,6 +4,11 @@
     align-items: center;
 }
 
+.edit-form label {
+    font-weight: 500;
+    font-size: medium;
+}
+
 input {
     margin: 10px;
     min-width: 400px;

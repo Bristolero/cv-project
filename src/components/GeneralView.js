@@ -8,7 +8,7 @@ class GeneralView extends React.Component{
 
     render () {
         return (
-            <div className="GeneralContainer">
+            <div className="general-container">
                 <div className="nameWrapper">
                     <p>Name: {this.props.name}</p>
                 </div>
@@ -23,7 +23,8 @@ class GeneralView extends React.Component{
                 </div>
                 <div className="githubWrapper">
                     <p>Github: {this.props.github}</p>
-                </div>           
+                </div>   
+                <button onClick={this.props.editValues}>Start Edit</button>        
             </div>
         )   
     }

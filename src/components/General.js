@@ -15,6 +15,7 @@ class General extends React.Component {
             github: "Bristolero",
             showView: false,
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
     submit = (e) => {
@@ -29,23 +30,40 @@ class General extends React.Component {
         })
     }
 
+    handleChange(e) {
+        e.preventDefault();
+        this.setState({[e.target.name]: e.target.value});
+    }
+
+    startEdit = () => {
+        console.log("Edit")
+        this.setState({
+            name: this.state.name,
+            email: this.state.email,
+            phone: this.state.phone,
+            address: this.state.address,
+            github: this.state.github,
+            showView: false,
+        })
+    }
+
     render () {
         const { name, email, phone, address, github } = this.state;
         return (
             <div>
                 {this.state.showView ? 
-                <GeneralView name={name} email={email} phone={phone} address={address} github={github}/> :
+                <GeneralView name={name} email={email} phone={phone} address={address} github={github} editValues={this.startEdit}/> :
                 <form className="edit-form" onSubmit={this.submit}>
                     <label htmlFor="nameInput">Name: </label>
-                    <input onChange={this.handleChange} value={name} type="text" id="nameInput"></input>
+                    <input onChange={this.handleChange} value={name} name="name" type="text" id="nameInput"></input>
                     <label htmlFor="emailInput">E-Mail: </label>
-                    <input onChange={this.handleChange} value={email} type="text" id="emailInput"></input>
+                    <input onChange={this.handleChange} value={email} name="email" type="text" id="emailInput"></input>
                     <label htmlFor="PhoneInput">Phone: </label>
-                    <input onChange={this.handleChange} value={phone} type="text" id="PhoneInput"></input>
+                    <input onChange={this.handleChange} value={phone} name="phone" type="text" id="PhoneInput"></input>
                     <label htmlFor="addressInput">Address: </label>
-                    <input onChange={this.handleChange} value={address} type="text" id="addressInput"></input>
+                    <input onChange={this.handleChange} value={address} name="address" type="text" id="addressInput"></input>
                     <label htmlFor="githubInput">Github: </label>
-                    <input onChange={this.handleChange} value={github} type="text" id="githubInput"></input>
+                    <input onChange={this.handleChange} value={github} name="github" type="text" id="githubInput"></input>
                     <button>First Edit</button>
                 </form>
                 }               
