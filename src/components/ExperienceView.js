@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons"
+import { faTrash, faEdit, faPlus } from "@fortawesome/free-solid-svg-icons";
+import '../styles/experienceView.css'
 
 class ExperienceView extends React.Component {
 
@@ -10,7 +11,9 @@ class ExperienceView extends React.Component {
 
     render() {
         return (
-            <div className="experience-container">
+            <div className="experience-info-wrapper">
+                <button className="btn-add" onClick={(e) => this.props.addCompany(e)}><FontAwesomeIcon icon={faPlus} size="2x" style={{color: "#152238"}} /></button>
+                <h3 className="experience-header">Work Experience</h3>
                 {this.props.companyList.map((company) => {
                     if(company.editMode) {
                         return (                   

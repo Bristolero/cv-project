@@ -29,7 +29,7 @@ class GeneralView extends React.Component{
     render () {
         return (
             <div className="general-info-wrapper" onMouseOver={this.enableButton} onMouseLeave={this.disableButton}>
-                {this.state.showButton &&  <button className="edit-info-btn" onClick={this.props.editValues}><FontAwesomeIcon icon={faEdit} /></button>} 
+                {this.state.showButton &&  <button className="edit-info-btn" onClick={this.props.editValues}><FontAwesomeIcon icon={faEdit} color="white" /></button>} 
                 <div className="nameWrapper wrapper">
                     <FontAwesomeIcon icon={faUser} color="white" /><p className="name-info">{this.props.name}</p>
                 </div>

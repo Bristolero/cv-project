@@ -3,6 +3,11 @@
     src: url('../fonts/Mulish-VariableFont_wght.ttf');
 }
 
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url('../fonts/SourceSansPro-Regular.ttf');
+}
+
 .App {
     display: flex;
     flex-direction: column; 
@@ -32,4 +37,14 @@ main {
     background-color: white;
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
 }
+
+.station-wrapper {
+    padding: 30px;
+}
+
+h3 {
+    font-family: "Source Sans Pro";
+    font-size: 26px;
+}
+
 

@@ -15,8 +15,10 @@ class App extends React.Component {
         <main>
           <div className='cv-wrapper'>
             <General />
-            <Experience /> 
-            <Education /> 
+              <div className='station-wrapper'>
+                <Experience /> 
+                <Education /> 
+              </div>
           </div>
         </main>
         <Footer />

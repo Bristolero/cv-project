@@ -25,4 +25,5 @@ input {
 
 .cv-header {
     font-size: 36px;
+    align-self: flex-end;
 }

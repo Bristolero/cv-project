@@ -8,7 +8,7 @@ class General extends React.Component {
         super(props)
 
         this.state = {
-            name: "Ayy",
+            name: "Morgan Blackhand",
             email: "Morgan.Blackhand@gmail.com",
             phone: "+1 234 4567890",
             address: "Las Vegas, NV, United States",
@@ -51,7 +51,7 @@ class General extends React.Component {
         const { name, email, phone, address, github } = this.state;
         return (
             <div className ="general-container">
-                <h2 className="cv-header">CV: {name}</h2>
+                <h2 className="cv-header">{name}</h2>
                 {this.state.showView ? 
                 <GeneralView name={name} email={email} phone={phone} address={address} github={github} editValues={this.startEdit}/> :
                 <form className="edit-form" onSubmit={this.submit}>

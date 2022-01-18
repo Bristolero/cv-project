@@ -98,9 +98,8 @@ class Experience extends React.Component {
     render () {
         const { companies } = this.state;
         return (
-            <div>
-                <button className="btn-add" onClick={this.addCompany}>Add Station</button>
-                <ExperienceView companyList={companies} deleteCompany={this.deleteCompany} editCompany={this.handleChange} startEdit={this.startEdit}/>
+            <div className="experience-container">
+                <ExperienceView companyList={companies} deleteCompany={this.deleteCompany} editCompany={this.handleChange} startEdit={this.startEdit} addCompany={this.addCompany}/>
             </div>
         )
     }
