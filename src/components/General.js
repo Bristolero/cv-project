@@ -13,7 +13,7 @@ class General extends React.Component {
             phone: "+1 234 4567890",
             address: "Las Vegas, NV, United States",
             github: "Bristolero",
-            showView: false,
+            showView: true,
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -50,7 +50,8 @@ class General extends React.Component {
     render () {
         const { name, email, phone, address, github } = this.state;
         return (
-            <div>
+            <div className ="general-container">
+                <h2 className="cv-header">CV: {name}</h2>
                 {this.state.showView ? 
                 <GeneralView name={name} email={email} phone={phone} address={address} github={github} editValues={this.startEdit}/> :
                 <form className="edit-form" onSubmit={this.submit}>
@@ -64,7 +65,7 @@ class General extends React.Component {
                     <input onChange={this.handleChange} value={address} name="address" type="text" id="addressInput"></input>
                     <label htmlFor="githubInput">Github: </label>
                     <input onChange={this.handleChange} value={github} name="github" type="text" id="githubInput"></input>
-                    <button>First Edit</button>
+                    <button>Edit</button>
                 </form>
                 }               
             </div>

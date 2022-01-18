@@ -28,6 +28,8 @@ main {
     border: 3px solid rgb(1, 1, 90);
     min-width: 210mm;
     min-height: 297mm;
+    aspect-ratio: 210 / 297;
     background-color: white;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
