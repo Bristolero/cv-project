@@ -1,15 +1,38 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faEdit, faPlus } from "@fortawesome/free-solid-svg-icons";
+import '../styles/educationView.css'
 
 class EducationView extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            showButton: false,
+        }
+
+       
+    }
+
+    enableButton = () => {
+        this.setState({
+            showButton: true,
+        })
+    }
+
+    disableButton = () => {
+        this.setState({
+            showButton: false,
+        })
     }
 
     render() {
         return (
-            <div className="education-container">
+            <div className="education-info-wrapper">
+                <div className="header-wrapper" onMouseEnter={this.enableButton} onMouseLeave={this.disableButton}>
+                    {this.state.showButton && <button className="btn-add" onClick={(e) => this.props.addSchool(e)}><FontAwesomeIcon id="fa-plus" icon={faPlus} size="2x" color="#152238" /></button> }
+                    <h3 className="education-header">Educational Experience</h3>
+                </div>
                 {this.props.schoolList.map(school => {
                     if(school.editMode) {
                         return (

@@ -91,8 +91,7 @@ class Education extends React.Component {
         const {schoolList} = this.state;
         return (
             <div>
-                <button className="btn-add" onClick={this.addSchool}>Add Education</button>
-                <EducationView schoolList={schoolList} deleteSchool={this.deleteSchool} editSchool={this.handleChange} startEdit={this.startEdit}/>
+                <EducationView schoolList={schoolList} deleteSchool={this.deleteSchool} editSchool={this.handleChange} startEdit={this.startEdit} addSchool={this.addSchool}/>
             </div>
         )
     }

@@ -7,13 +7,33 @@ class ExperienceView extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            showButton: false,
+        }
+
+       
+    }
+
+    enableButton = () => {
+        this.setState({
+            showButton: true,
+        })
+    }
+
+    disableButton = () => {
+        this.setState({
+            showButton: false,
+        })
     }
 
     render() {
         return (
             <div className="experience-info-wrapper">
-                <button className="btn-add" onClick={(e) => this.props.addCompany(e)}><FontAwesomeIcon icon={faPlus} size="2x" style={{color: "#152238"}} /></button>
-                <h3 className="experience-header">Work Experience</h3>
+                <div className="header-wrapper" onMouseEnter={this.enableButton} onMouseLeave={this.disableButton}>
+                    {this.state.showButton && <button className="btn-add" onClick={(e) => this.props.addCompany(e)}><FontAwesomeIcon id="fa-plus" icon={faPlus} size="2x" color="#152238" /></button> }
+                    <h3 className="experience-header">Work Experience</h3>
+                </div>
                 {this.props.companyList.map((company) => {
                     if(company.editMode) {
                         return (                   
