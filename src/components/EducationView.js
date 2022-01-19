@@ -43,16 +43,17 @@ class EducationView extends React.Component {
                                     <label htmlFor="nameInput">Name: </label>
                                     <input name="name" value={school.name} onChange={(e) => this.props.editSchool(e, school.id)} id="nameInput"></input>
                                 </div>
-                                <div className="subject-wrapper">
-                                    <label htmlFor="subjectInput">subject: </label>
-                                    <input name="subject" value={school.subject} onChange={(e) => this.props.editSchool(e, school.id)} id="subjectInput"></input>
-                                </div>
                                 <div className="date-wrapper">
                                     <label htmlFor="startDateInput">From: </label>
                                     <input name="startDate" value={school.startDate} onChange={(e) => this.props.editSchool(e, school.id)} id="startDateInput"></input>
                                     <label htmlFor="endDateInput">To: </label>
                                     <input name="endDate" value={school.endDate} onChange={(e) => this.props.editSchool(e, school.id)} id="endDateInput"></input>
                                 </div>
+                                <div className="subject-wrapper">
+                                    <label htmlFor="subjectInput">subject: </label>
+                                    <input name="subject" value={school.subject} onChange={(e) => this.props.editSchool(e, school.id)} id="subjectInput"></input>
+                                </div>
+                                
                             </div>
                         )
                     } else return (

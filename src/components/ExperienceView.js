@@ -37,7 +37,7 @@ class ExperienceView extends React.Component {
                 {this.props.companyList.map((company) => {
                     if(company.editMode) {
                         return (                   
-                            <div key={company.id} className="company-wrapper">
+                            <div key={company.id} className="company-wrapper" onMouseEnter={() => this.props.enableButtons(company.id)} onMouseLeave={() => this.props.disableButtons(company.id)}>
                                 <button className="btn-delete" onClick={() => this.props.deleteCompany(company.id)}><FontAwesomeIcon icon={faTrash}/></button>
                                 <button className="btn-edit" onClick={() => this.props.startEdit(company.id)}><FontAwesomeIcon icon={faEdit}/></button>
                                 <div className="name-wrapper">
@@ -62,21 +62,26 @@ class ExperienceView extends React.Component {
                         )
                     }
                     else return (
-                        <div key={company.id} className="company-wrapper">
-                            <button className="btn-delete" onClick={() => this.props.deleteCompany(company.id)}><FontAwesomeIcon icon={faTrash}/></button>
-                            <button className="btn-edit" onClick={() => this.props.startEdit(company.id)}><FontAwesomeIcon icon={faEdit}/></button>
-                            <div className="name-wrapper">
-                                <p>Name: {company.name}</p>
+                        <div key={company.id} className="company-wrapper" onMouseEnter={() => this.props.enableButtons(company.id)} onMouseLeave={() => this.props.disableButtons(company.id)}>
+                            {company.showButtons && 
+                            <div>
+                                <button className="btn-delete" onClick={() => this.props.deleteCompany(company.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                                <button className="btn-edit" onClick={() => this.props.startEdit(company.id)}><FontAwesomeIcon icon={faEdit} /></button>
+                            </div>}                            
+                            <div className="name-date-wrapper">
+                                <div className="name-wrapper">
+                                    <p>Name: {company.name}</p>
+                                </div>
+                                <div className="date-wrapper">
+                                    <p>From: {company.startDate} - {company.endDate} </p>
+                                </div>
                             </div>
                             <div className="position-wrapper">
                                 <p>Position: {company.positionTitle}</p>
                             </div>
                             <div className="description-wrapper">
                                 <p>Additional Info: {company.jobDescription}</p>
-                            </div>
-                            <div className="date-wrapper">
-                                <p>From: {company.startDate} - {company.endDate} </p>
-                            </div>
+                            </div> 
                         </div>
                     );
                 })}

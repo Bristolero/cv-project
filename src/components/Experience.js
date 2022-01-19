@@ -16,6 +16,7 @@ class Experience extends React.Component {
                 startDate: "",
                 endDate: "",
                 editMode: false,
+                showButtons: false,
             },
             companies: []
         }
@@ -32,6 +33,7 @@ class Experience extends React.Component {
                 startDate: this.state.company.startDate,
                 endDate: this.state.company.endDate,
                 editMode: false,
+                showButtons: this.state.company.showButtons,
             },
             companies: this.state.companies.concat(this.state.company)
         });
@@ -47,6 +49,7 @@ class Experience extends React.Component {
                 startDate: this.state.company.startDate,
                 endDate: this.state.company.endDate,
                 editMode: false,
+                showButtons: this.state.company.showButtons,
             },
             companies: this.state.companies.filter(company => company.id !== value),
             
@@ -63,6 +66,7 @@ class Experience extends React.Component {
                 startDate: this.state.company.startDate,
                 endDate: this.state.company.endDate,
                 editMode: false,
+                showButtons: this.state.company.showButtons,
             },
             companies: this.state.companies.map(company => {
                 if(company.id === value) {
@@ -85,6 +89,7 @@ class Experience extends React.Component {
                 startDate: this.state.company.startDate,
                 endDate: this.state.company.endDate,
                 editMode: this.state.company.editMode,
+                showButtons: this.state.company.showButtons,
             },
             companies: this.state.companies.map(company => {
               if(company.id === value) {
@@ -95,11 +100,53 @@ class Experience extends React.Component {
           })
     }
 
+    enableButtons = (value) => {
+        this.setState({
+            company: {       
+                name: this.state.company.name,
+                id: this.state.company.id,
+                positionTitle: this.state.company.positionTitle,
+                jobDescription: this.state.company.jobDescription,
+                startDate: this.state.company.startDate,
+                endDate: this.state.company.endDate,
+                editMode: this.state.company.editMode,   
+                showButtons: false,
+            },
+            companies: this.state.companies.map(company => {
+                if(company.id === value) {
+                  return Object.assign({}, company, { showButtons: true })
+                }
+                return company;
+            })
+        })
+    }
+
+    disableButtons = (value) => {
+        this.setState({
+            company: {    
+                name: this.state.company.name,
+                id: this.state.company.id,
+                positionTitle: this.state.company.positionTitle,
+                jobDescription: this.state.company.jobDescription,
+                startDate: this.state.company.startDate,
+                endDate: this.state.company.endDate,
+                editMode: this.state.company.editMode,      
+                showButtons: false,
+            },
+            companies: this.state.companies.map(company => {
+                if(company.id === value) {
+                  return Object.assign({}, company, { showButtons: false })
+                }
+                return company;
+            })
+        })
+    }
+
     render () {
         const { companies } = this.state;
         return (
             <div className="experience-container">
-                <ExperienceView companyList={companies} deleteCompany={this.deleteCompany} editCompany={this.handleChange} startEdit={this.startEdit} addCompany={this.addCompany}/>
+                <ExperienceView companyList={companies} deleteCompany={this.deleteCompany}  editCompany={this.handleChange} startEdit={this.startEdit} addCompany={this.addCompany} enableButtons={this.enableButtons} disableButtons={this.disableButtons}/>
             </div>
         )
     }
